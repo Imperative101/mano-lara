@@ -1,5 +1,10 @@
 <form method="POST" action="{{route('book.update',[$book])}}">
-       Title: <input type="text" name="book_title" value="{{$book->title}}">
+<div class="form-group">
+  <label>Title</label>
+  <input type="text" name="book_title"  class="form-control" value="{{$book->title}}">
+  <small class="form-text text-muted">Knygos pavadinimas.</small>
+  </div>
+
        ISBN: <input type="text" name="book_isbn" value="{{$book->isbn}}">
        Pages: <input type="text" name="book_pages" value="{{$book->pages}}">
        About: <textarea name="book_about">{{$book->about}}</textarea>

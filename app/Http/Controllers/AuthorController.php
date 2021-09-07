@@ -42,7 +42,7 @@ class AuthorController extends Controller
     $author->name = $request->author_name;
     $author->surname = $request->author_surname;
     $author->save();
-    return redirect()->route('author.index');
+    return redirect()->route('author.index')->with('success_message', 'Sekmingai įrašytas.');
 
     }
 
@@ -80,7 +80,7 @@ class AuthorController extends Controller
     $author->name = $request->author_name;
        $author->surname = $request->author_surname;
        $author->save();
-       return redirect()->route('author.index');
+       return redirect()->route('author.index')->with('success_message', 'Sėkmingai pakeistas.');
     }
 
     /**
@@ -93,9 +93,10 @@ class AuthorController extends Controller
     {
         if($author->authorBooks->count()){
             return 'Trinti negalima, nes turi knygų';
+
         }
         $author->delete();
-        return redirect()->route('author.index');
+        return redirect()->route('author.index')->with('success_message', 'Sekmingai ištrintas.');
  
     }
 }

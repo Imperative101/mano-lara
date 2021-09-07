@@ -52,6 +52,47 @@
                                 </li>
                             @endif
                         @else
+
+                            <!-- paste code here-->
+
+                            <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   Authors
+                               </a>
+                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="{{ route('author.index') }}">
+                                       Authors List
+                                   </a>
+                                   <a class="dropdown-item" href="{{ route('author.create') }}">
+                                       New Author
+                                   </a>
+                               </div>
+                           </li>
+                           <li class="nav-item dropdown">
+                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   Books
+                               </a>
+                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="{{ route('book.index') }}">
+                                       Books List
+                                   </a>
+                                       <a class="dropdown-item" href="{{ route('book.create') }}">
+                                       New Book
+                                   </a>
+                               </div>
+                           </li>
+
+
+
+
+
+
+
+
+
+
+
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -76,7 +117,62 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+        @extends('layouts.app')
+
+@section('content')
+<div class="container">
+   <div class="row justify-content-center">
+       <div class="col-md-8">
+           <div class="card">
+               <div class="card-header">PAVADINIMAS</div>
+
+               <div class="card-body">
+                 BLADE TURINYS
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+@endsection
+
+
+<!--6.-->
+
+<div class="container">
+                       <div class="row justify-content-center">
+                           <div class="col-md-9">
+                               @if ($errors->any())
+                               <div class="alert">
+                                   <ul class="list-group">
+                                       @foreach ($errors->all() as $error)
+                                           <li class="list-group-item list-group-item-danger">{{ $error }}</li>
+                                       @endforeach
+                                   </ul>
+                               </div>
+                               @endif
+                           </div>
+                       </div>
+                   </div>
+                   <div class="container">
+                       <div class="row justify-content-center">
+                           <div class="col-md-9">
+                               @if(session()->has('success_message'))
+                                   <div class="alert alert-success" role="alert">
+                                       {{session()->get('success_message')}}
+                                   </div>
+                               @endif
+                              
+                               @if(session()->has('info_message'))
+                                   <div class="alert alert-info" role="alert">
+                                       {{session()->get('info_message')}}
+                                   </div>
+                               @endif
+                           </div>
+                       </div>
+                   </div>
+
+
+
         </main>
     </div>
 </body>
