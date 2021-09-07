@@ -6,3 +6,5 @@ Laravel
 create project in xampp/htdocks/
 5. to sequre project on deploy
 .env APP_DEBUG: FALSE (change to false)
+6. cd .. [cd ..] back to htdocks in terminal
+7.
